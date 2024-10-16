@@ -18,7 +18,6 @@ class ContentViewModel: ObservableObject {
     var recipesEndpoint: String = RecipeNetwork.Endpoint.allRecipes
     
     @Published var recipes: RecipeCollection = []
-    @Published var networkError: Bool = false
     @Published var viewState: ViewState = .loading
     
     func loadRecipes() async {
@@ -32,7 +31,6 @@ class ContentViewModel: ObservableObject {
         } catch (let error) {
             print(String(describing: error))
             
-            self.networkError = true
             self.viewState = .networkError
         }
     }
