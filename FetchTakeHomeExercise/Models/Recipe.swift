@@ -46,6 +46,8 @@ struct Recipe: Identifiable, Codable, Previewable {
 
 typealias RecipeCollection = [Recipe]
 
-struct RecipesNetworkResponse: Codable {
+struct RecipesNetworkResponse: Codable, Previewable {
+    typealias PreviewType = RecipesNetworkResponse
+    
     var recipes: RecipeCollection
 }
