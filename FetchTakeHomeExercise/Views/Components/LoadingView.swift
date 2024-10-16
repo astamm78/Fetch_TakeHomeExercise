@@ -11,7 +11,14 @@ struct LoadingView: View {
     @EnvironmentObject var viewModel: ContentViewModel
     
     var body: some View {
-        Text("Loading")
+        ZStack {
+            LottieView(
+                animationFileName: "LoadingAnimation.json",
+                loopMode: .loop
+            )
+            .frame(width: 200, height: 200)
+        }
+        
     }
 }
 

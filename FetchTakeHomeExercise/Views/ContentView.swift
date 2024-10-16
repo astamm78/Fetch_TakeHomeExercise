@@ -17,7 +17,6 @@ struct ContentView: View {
                     await viewModel.loadRecipes()
                 }
                 .navigationTitle("Recipes".uppercased())
-                .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItem(placement: .topBarTrailing) {
                         Button {
@@ -25,7 +24,7 @@ struct ContentView: View {
                                 await viewModel.loadRecipes()
                             }
                         } label: {
-                            Text("Reload")
+                            Text("Refresh")
                         }
 
                     }
