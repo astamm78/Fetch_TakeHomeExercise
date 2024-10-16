@@ -11,10 +11,26 @@ struct ContentView: View {
     @EnvironmentObject var viewModel: ContentViewModel
     
     var body: some View {
-        mainView
-            .task {
-                await viewModel.loadRecipes()
-            }
+        NavigationStack {
+            mainView
+                .task {
+                    await viewModel.loadRecipes()
+                }
+                .navigationTitle("Recipes".uppercased())
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolbarItem(placement: .topBarTrailing) {
+                        Button {
+                            Task {
+                                await viewModel.loadRecipes()
+                            }
+                        } label: {
+                            Text("Reload")
+                        }
+
+                    }
+                }
+        }
     }
     
     @ViewBuilder

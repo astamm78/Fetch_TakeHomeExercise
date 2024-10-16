@@ -22,6 +22,8 @@ class ContentViewModel: ObservableObject {
     @Published var viewState: ViewState = .loading
     
     func loadRecipes() async {
+        viewState = .loading
+        
         do {
             let recipesNetworkResponse = try await RecipeNetwork.allRecipes(for: recipesEndpoint)
             
