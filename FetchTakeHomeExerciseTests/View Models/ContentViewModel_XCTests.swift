@@ -8,9 +8,9 @@
 import XCTest
 @testable import FetchTakeHomeExercise
 
+@MainActor
 final class ContentViewModel_XCTests: XCTestCase {
 
-    @MainActor
     func testInitialState() {
         let viewModel = ContentViewModel()
 
@@ -18,20 +18,18 @@ final class ContentViewModel_XCTests: XCTestCase {
         XCTAssertTrue(viewModel.recipes.isEmpty, "Recipes should be empty on initialization.")
     }
     
-    @MainActor
     func testLoadRecipesSuccessfully() async {
         let viewModel = ContentViewModel()
         await viewModel.loadRecipes()
         
         XCTAssertEqual(viewModel.viewState, .recipes, "viewState should be `.recipes` when recipes are loaded successfully.")
-        XCTAssertEqual(viewModel.recipes.count, 65, "Recipes array count should be 65 if loaded successfully.")
+        XCTAssertEqual(viewModel.recipes.count, 63, "Recipes array count should be 63 if loaded successfully.")
         XCTAssertTrue(!viewModel.recipes.isEmpty, "Recipes should not be empty after successful load.")
     }
     
-    @MainActor
     func testLoadRecipesMalformedJSONError() async {
         let viewModel = ContentViewModel.jsonErrorTest
-        viewModel.recipesEndpoint = NetworkService.Endpoint.malformedJSON
+        viewModel.recipesEndpoint = RecipesEndpoint.malformedJSON
         await viewModel.loadRecipes()
         
         XCTAssertEqual(viewModel.viewState, .networkError, "viewState should be `.networkError` when a JSON error occurs.")

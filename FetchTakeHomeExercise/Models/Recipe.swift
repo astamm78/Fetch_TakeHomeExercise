@@ -21,7 +21,7 @@ struct Recipe: Identifiable, Codable, Previewable {
     var sourceURL: URL?
     var youtubeURL: URL?
     
-    private enum CodingKeys: String, CodingKey {
+    internal enum CodingKeys: String, CodingKey, CaseIterable {
         case cuisine, name, uuid
         case photoURLLarge = "photo_url_large"
         case photoURLSmall = "photo_url_small"

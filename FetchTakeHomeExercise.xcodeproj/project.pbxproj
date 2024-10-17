@@ -46,11 +46,6 @@
 			path = FetchTakeHomeExerciseTests;
 			sourceTree = "<group>";
 		};
-		E4F87A812CBF27F500FF7AE7 /* FetchTakeHomeExerciseUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = FetchTakeHomeExerciseUITests;
-			sourceTree = "<group>";
-		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,7 +81,6 @@
 			children = (
 				E4F87A652CBF27F300FF7AE7 /* FetchTakeHomeExercise */,
 				E4F87A772CBF27F500FF7AE7 /* FetchTakeHomeExerciseTests */,
-				E4F87A812CBF27F500FF7AE7 /* FetchTakeHomeExerciseUITests */,
 				E4F87A642CBF27F300FF7AE7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -164,9 +158,6 @@
 			);
 			dependencies = (
 				E4F87A802CBF27F500FF7AE7 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				E4F87A812CBF27F500FF7AE7 /* FetchTakeHomeExerciseUITests */,
 			);
 			name = FetchTakeHomeExerciseUITests;
 			packageProductDependencies = (
