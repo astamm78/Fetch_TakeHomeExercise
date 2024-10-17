@@ -14,7 +14,7 @@ I used the `Networking` library, that I've worked with in the past, to quickly s
 
 I also wanted to set up my main view model, `ContentViewModel` as an `@EnvironmentObject` as it became clear very early on that more than one subview would rely on it's `@Published` vars for displaying the data correctly.
 
-The main Networking file, `NetworkingService`, is also set up with a generic handler for JSON data. There's only a single model in this project, but other `Codable` models could be added to the future and use the same `handleResponse` function from the `NetworkingService` to return the correct object type.
+The main Networking file, `NetworkingService`, is also set up with a generic handler for JSON data. There's only a single model in this project, but other `Codable` models could be added in the future and use the same `handleResponse` function from the `NetworkingService` to return the correct object type.
 
 Also, even though this is a realtively simple application, I organized my code as I would have for a larger app, with many more models, view models, networking calls and views.
 
