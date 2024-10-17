@@ -15,7 +15,7 @@ class ContentViewModel: ObservableObject {
         case recipes
     }
     
-    var recipesEndpoint: String = RecipeNetwork.Endpoint.allRecipes
+    var recipesEndpoint: RecipesEndpoint = .allRecipes
     
     @Published var recipes: RecipeCollection = []
     @Published var viewState: ViewState = .loading
@@ -24,7 +24,7 @@ class ContentViewModel: ObservableObject {
         viewState = .loading
         
         do {
-            let recipesNetworkResponse = try await RecipeNetwork.allRecipes(for: recipesEndpoint)
+            let recipesNetworkResponse = try await RecipesNetworkService.allRecipes(for: recipesEndpoint.rawValue)
             
             self.recipes = recipesNetworkResponse.recipes
             self.viewState = .recipes

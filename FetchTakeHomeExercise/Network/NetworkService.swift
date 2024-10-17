@@ -1,5 +1,5 @@
 //
-//  RecipeNetwork.swift
+//  NetworkService.swift
 //  FetchTakeHomeExercise
 //
 //  Created by Andrew Stamm on 10/15/24.
@@ -8,13 +8,7 @@
 import Foundation
 import Networking
 
-struct RecipeNetwork {
-    enum Endpoint {
-        static var allRecipes = "/recipes.json"
-        static var malformedJSON = "/recipes-malformed.json"
-        static var emptyResponse = "/recipes-empty.json"
-    }
-    
+class NetworkService {
     enum ResponseError: Error {
         case malformedJSON(message: String)
     }
@@ -24,13 +18,6 @@ struct RecipeNetwork {
             baseURL: "https://d3jbb8n5wk0qxi.cloudfront.net",
             configuration: .default
         )
-    }
-    
-    static func allRecipes(for endpoint: String) async throws -> RecipesNetworkResponse {
-        let response = try await RecipeNetwork.service.get(endpoint)
-        
-        let recipesResponse: RecipesNetworkResponse = try handleResponse(response)
-        return recipesResponse
     }
     
     static func handleResponse<T: Codable>(_ response: JSONResult) throws -> T {

@@ -51,14 +51,14 @@ struct ContentView: View {
 
 #Preview("w/ JSON Error") {
     let viewModel = ContentViewModel()
-    viewModel.recipesEndpoint = RecipeNetwork.Endpoint.malformedJSON
+    viewModel.recipesEndpoint = .malformedJSON
     
     return ContentView().environmentObject(viewModel)
 }
 
 #Preview("w/ Empty State") {
     let viewModel = ContentViewModel()
-    viewModel.recipesEndpoint = RecipeNetwork.Endpoint.emptyResponse
+    viewModel.recipesEndpoint = .emptyResponse
     
     return ContentView().environmentObject(viewModel)
 }

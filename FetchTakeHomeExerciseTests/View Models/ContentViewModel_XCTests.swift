@@ -31,7 +31,7 @@ final class ContentViewModel_XCTests: XCTestCase {
     @MainActor
     func testLoadRecipesMalformedJSONError() async {
         let viewModel = ContentViewModel.jsonErrorTest
-        viewModel.recipesEndpoint = RecipeNetwork.Endpoint.malformedJSON
+        viewModel.recipesEndpoint = NetworkService.Endpoint.malformedJSON
         await viewModel.loadRecipes()
         
         XCTAssertEqual(viewModel.viewState, .networkError, "viewState should be `.networkError` when a JSON error occurs.")
