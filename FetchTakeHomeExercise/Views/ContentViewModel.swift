@@ -36,11 +36,3 @@ class ContentViewModel: ObservableObject {
     }
     
 }
-
-extension ContentViewModel {
-    static var jsonErrorTest: ContentViewModel {
-        let viewModel = ContentViewModel()
-        viewModel.viewState = .networkError
-        return viewModel
-    }
-}

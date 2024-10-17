@@ -28,7 +28,7 @@ final class ContentViewModel_XCTests: XCTestCase {
     }
     
     func testLoadRecipesMalformedJSONError() async {
-        let viewModel = ContentViewModel.jsonErrorTest
+        let viewModel = ContentViewModel()
         viewModel.recipesEndpoint = RecipesEndpoint.malformedJSON
         await viewModel.loadRecipes()
         
