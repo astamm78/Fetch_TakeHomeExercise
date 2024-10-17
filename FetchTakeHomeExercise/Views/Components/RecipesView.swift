@@ -22,6 +22,9 @@ struct RecipesView: View {
                 }
                 .padding()
             }
+            .refreshable {
+                await viewModel.loadRecipes()
+            }
         }
     }
 }
